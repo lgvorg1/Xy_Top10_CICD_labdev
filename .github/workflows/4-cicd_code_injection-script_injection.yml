@@ -1,5 +1,5 @@
 
-name: CICD-SEC-4 pipeline_reviewed_before_execution (pr) (CMD)
+name: CICD-SEC-4 cicd_code_injection - Script Injection (pr) (CMD)
 
 on:
   pull_request:
@@ -12,7 +12,7 @@ env:
   #XY_URL: ${{ secrets.XY_URL }}
   XY_URL: ${{ vars.XY_URL_API }}
   XY_URL_SCANNER: 'https://get.xygeni.io/latest/scanner/install.sh'
-  XY_PRJ_NAME: GH-CICD-4-pipeline_reviewed_before_execution-pr-${{ env.BRANCH }}-CMD
+  XY_PRJ_NAME: GH-CICD-4-pipeline_reviewed_before_execution-pr-${{ github.head_ref }}-CMD
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -81,7 +81,7 @@ jobs:
       - name: Execution Xygeni Scanner
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/**
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-CICD-4-pipeline_reviewed_before_execution-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
           echo =======
           echo =======
           ls -al 
