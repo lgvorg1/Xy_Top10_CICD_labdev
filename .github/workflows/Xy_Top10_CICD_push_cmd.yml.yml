@@ -18,7 +18,10 @@ env:
   #GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
   XY_USERNAME: ${{ secrets.XY_USERNAME }}
   XY_PASSWORD: ${{ secrets.XY_PASSWORD }}
-  XY_URL: ${{ secrets.XY_URL }}
+  #XY_URL: ${{ secrets.XY_URL }}
+  XY_URL: 'https://apidev.xygeni.io/deps-doctor-service'
+  XY_URL_SCANNER: 'https://get.xygeni.io/latest/scanner/install.sh'
+  XY_PRJ_NAME: GH-${{ github.event.repository.name }}-push-${GITHUB_REF##*/}-CMD
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -51,7 +54,7 @@ jobs:
           echo Pruebas 1
           echo Pruebas 2
           echo Pruebas 3
-          curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u ${{ env.XY_USERNAME }} -p ${{ env.XY_PASSWORD }} -s ${{ env.XY_URL }} -d ${GITHUB_WORKSPACE}/scanner
+          curl -L ${{ env.XY_URL_SCANNER }} | /bin/bash -s -- -u ${{ env.XY_USERNAME }} -p ${{ env.XY_PASSWORD }} -s ${{ env.XY_URL }} -d ${GITHUB_WORKSPACE}/scanner
           ls -l
           pwd
           cat ${GITHUB_WORKSPACE}/scanner/conf/codetampering/ccm/workflow_modification.yml | grep nonTrivialChangeChecker
@@ -80,7 +83,7 @@ jobs:
       - name: Execution Xygeni Scanner
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-${{ github.event.repository.name }}-push-${GITHUB_REF##*/}-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/**
           echo =======
           echo =======
           ls -al 
