@@ -19,7 +19,7 @@ env:
   XY_USERNAME: ${{ secrets.XY_USERNAME }}
   XY_PASSWORD: ${{ secrets.XY_PASSWORD }}
   #XY_URL: ${{ secrets.XY_URL }}
-  XY_URL: 'https://apidev.xygeni.io/deps-doctor-service'
+  XY_URL: ${{ vars.XY_URL_API }}
   XY_URL_SCANNER: 'https://get.xygeni.io/latest/scanner/install.sh'
   XY_PRJ_NAME: GH-CICD1-pipeline_external_dependencies-push-${GITHUB_REF##*/}-CMD
 
@@ -35,9 +35,10 @@ jobs:
 
       - name: Xy Environment
         run: |
+          echo XY_URL [${{ env.XY_URL }}]
           echo XY_URL_SCANNER [${{ env.XY_URL_SCANNER }}]
           echo XY_PRJ_NAME [${{ env.XY_PRJ_NAME }}]
-          echo XY_URL_API [${{ vars.XY_URL_API }}]
+
           
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
