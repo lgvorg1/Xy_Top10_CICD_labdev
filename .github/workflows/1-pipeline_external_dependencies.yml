@@ -37,7 +37,7 @@ jobs:
         run: |
           echo XY_URL_SCANNER [${{ env.XY_URL_SCANNER }}]
           echo XY_PRJ_NAME [${{ env.XY_PRJ_NAME }}]
-          echo XY_URL_API [${{ env.XY_URL_API }}]
+          echo XY_URL_API [${{ vars.XY_URL_API }}]
           
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
