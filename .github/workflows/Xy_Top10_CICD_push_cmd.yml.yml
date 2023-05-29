@@ -21,7 +21,7 @@ env:
   #XY_URL: ${{ secrets.XY_URL }}
   XY_URL: 'https://apidev.xygeni.io/deps-doctor-service'
   XY_URL_SCANNER: 'https://get.xygeni.io/latest/scanner/install.sh'
-  XY_PRJ_NAME: GH-${{ github.event.repository.name }}-push-${GITHUB_REF##*/}-CMD
+  XY_PRJ_NAME: GH-CICD-${{ github.event.repository.name }}-push-${GITHUB_REF##*/}-CMD
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
