@@ -26,6 +26,7 @@ jobs:
 
       - name: Xy Environment
         run: |
+          echo XY_USERNAME [${{ env.XY_USERNAME }}]
           echo XY_URL [${{ env.XY_URL }}]
           echo XY_URL_SCANNER [${{ env.XY_URL_SCANNER }}]
           echo XY_PRJ_NAME [${{ env.XY_PRJ_NAME }}]
