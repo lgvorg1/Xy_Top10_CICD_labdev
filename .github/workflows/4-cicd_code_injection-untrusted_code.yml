@@ -82,7 +82,7 @@ jobs:
       - name: Execution Xygeni Scanner
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-CICD-4-pipeline_reviewed_before_execution-pr-${{ github.head_ref }}-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n GH-CICD-4-pipeline_reviewed_before_execution-pr-kk-CMD --dir ${GITHUB_WORKSPACE} -e **/scanner/**
           echo =======
           echo =======
           ls -al 
