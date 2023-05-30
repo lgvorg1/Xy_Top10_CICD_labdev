@@ -83,6 +83,9 @@ jobs:
           echo "-------"
           ls -l ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/cicd*
           cat ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/cicd_unapproved_cicd_system.yml
+          sed -i 's/github_actions/lgv/g' ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/cicd_unapproved_cicd_system.yml
+          cat ${GITHUB_WORKSPACE}/scanner/conf/misconfigurations/cicd_unapproved_cicd_system.yml
+          
 
 
           
