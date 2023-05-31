@@ -58,7 +58,7 @@ jobs:
 
       - name: Dummy step
         run: |
-          exit 1
+          exit 0
 
       # Runs a single command using the runners shell
       - name: Git Log
