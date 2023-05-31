@@ -1,0 +1,12 @@
+name: Do Xygeni scan
+
+on:
+  workflow_call:
+
+
+jobs:
+  FirstJob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: My First Line
+        run: echo "Hola from called workflow"

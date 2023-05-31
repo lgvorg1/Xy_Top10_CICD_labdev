@@ -49,6 +49,13 @@ jobs:
           # Default: 1
           fetch-depth: '10'
 
+
+      - uses: ./.github/workflows/do_scan.yml
+
+      - name: Dummy step
+        run: |
+          exit 1
+
       # Runs a single command using the runners shell
       - name: Git Log
         run: git log
