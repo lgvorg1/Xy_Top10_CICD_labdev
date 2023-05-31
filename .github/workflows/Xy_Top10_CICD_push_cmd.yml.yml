@@ -28,6 +28,7 @@ env:
 jobs:
   # This workflow contains a single job called "build"
   otro:
+    steps:
       - uses: ./.github/workflows/do_scan.yml
 
   build:
