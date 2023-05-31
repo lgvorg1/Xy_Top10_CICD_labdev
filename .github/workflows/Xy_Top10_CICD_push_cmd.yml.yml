@@ -106,7 +106,7 @@ jobs:
       - name: Execution Xygeni Scanner
         run: |
           echo Executing Xygeni scan ....    
-          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/**
+          ${GITHUB_WORKSPACE}/scanner/xygeni scan --never-fail -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} 
           echo =======
           echo =======
           ls -al 
