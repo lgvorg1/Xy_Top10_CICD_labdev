@@ -8,5 +8,5 @@ jobs:
   FirstJob:
     runs-on: ubuntu-latest
     steps:
-    - name: My First Line
+      - name: My First Line
         run: echo "Hola from called workflow"
